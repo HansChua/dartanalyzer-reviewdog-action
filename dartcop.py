@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 MIT License
 
@@ -26,8 +28,6 @@ Source: https://github.com/kuronekomichael/dartcop/
 Modified 2021 by Hans to write to output_checkstyle.xml file
 """
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 import sys
 import xml.etree.ElementTree as ET
 import subprocess
