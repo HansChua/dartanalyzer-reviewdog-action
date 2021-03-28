@@ -23,16 +23,16 @@ The default is `error`.
 Optional. Reporter of reviewdog command [`github-check`, `github-pr-check`,`github-pr-review`].
 The default is `github-check`.
 
-### `filter_mode`
+#### `filter_mode`
 Optional. Filter mode of reviewdog command [`added`,`diff_context`,`file`,`nofilter`]
 Default is `added`.
 
-### `reviewdog_flags`
+#### `reviewdog_flags`
 
 Optional. Additional flags to be passed to reviewdog cli.
 The default is ``.
 
-### `workdir`
+#### `workdir`
 
 Optional. The directory from which to run dartanalyzer.
 Default `.`.
