@@ -18,9 +18,8 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 echo 'Installing reviewdog'
 curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b "${TEMP_PATH}" "${REVIEWDOG_VERSION}" 2>&1
 
-echo "Install dartcop (dartanalyzer wrapper)"
-curl -fSL https://github.com/HansChua/dartcop/raw/master/src/dartcop/dartcop.py -o "${TEMP_PATH}/dartcop" \
-    && chmod +x "${TEMP_PATH}/dartcop"
+cp ./dartcop.py "${TEMP_PATH}/dartcop" \
+  && chmod +x "${TEMP_PATH}/dartcop"
 
 dartcop --options analysis_options.yaml ${INPUT_WORKDIR}
 
