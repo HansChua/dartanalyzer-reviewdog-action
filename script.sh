@@ -5,17 +5,10 @@ cd "${GITHUB_WORKSPACE}/${INPUT_WORKDIR}" || exit 1
 TEMP_PATH="$(mktemp -d)"
 PATH="${TEMP_PATH}:$PATH"
 
-if type "python" > /dev/null 2>&1 ; then
-  python --version
+if [[ "$(python -V)" =~ "Python 3" ]] then
+  python -V
 else
   echo 'This repository was not configured for python3, process done.'
-  exit 1
-fi
-
-if type "flutter" > /dev/null 2>&1 ; then
-  flutter --version
-else
-  echo 'This repository was not configured for flutter, process done.'
   exit 1
 fi
 
@@ -30,7 +23,7 @@ curl -fSL https://github.com/HansChua/dartcop/raw/master/src/dartcop/dartcop.py 
 
 dartcop --options analysis_options.yaml ${INPUT_WORKDIR}
 
-cat output_checkstyle.xml | reviewdog -f=checkstyle -name="dartanalyzer" -reporter="${INPUT_REPORTER}" -filter-mode="${INPUT_FILTER_MODE}" -level="${INPUT_LEVEL}" ${INPUT_REVIEWDOG_FLAGS}
+echo "$(<output_checkstyle.xml)" | reviewdog -f=checkstyle -name="dartanalyzer" -reporter="${INPUT_REPORTER}" -filter-mode="${INPUT_FILTER_MODE}" -level="${INPUT_LEVEL}" ${INPUT_REVIEWDOG_FLAGS}
 
 reviewdog_rc=$?
 exit $reviewdog_rc
