@@ -2,6 +2,8 @@
 
 This action runs [dartanalyzer](https://dart.dev/tools/dart-analyze) with [reviewdog](https://github.com/reviewdog/reviewdog).
 
+For `dart` and `flutter`.
+
 ## Additional Requirements
 
 Python 3
@@ -69,10 +71,6 @@ jobs:
         with:
           python-version: '3.x'
           architecture: x64
-      - name: Setup Flutter env
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '2.0.3'
       - name: Run dartanalyzer
         uses: HansChua/dartanalyzer-reviewdog-action@main
         with:
