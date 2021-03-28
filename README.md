@@ -6,6 +6,14 @@ This action runs [dartanalyzer](https://dart.dev/tools/dart-analyze) with [revie
 
 Python 3
 
+```
+- name: Setup python
+  uses: actions/setup-python@v2
+    with:
+      python-version: '3.x'
+      architecture: x64
+```
+
 ## Inputs
 
 #### `github_token`
