@@ -5,7 +5,8 @@ cd "${GITHUB_WORKSPACE}/${INPUT_WORKDIR}" || exit 1
 TEMP_PATH="$(mktemp -d)"
 PATH="${TEMP_PATH}:$PATH"
 
-if "$(python -V)" =~ "Python 3" ; then
+if [[ "$(python -V)" =~ "Python 3" ]]
+then
   python -V
 else
   echo 'This repository was not configured for python3, process done.'
