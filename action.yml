@@ -35,12 +35,6 @@ inputs:
     default: '.'
 runs:
   using: 'composite'
-  args:
-    - ${{ inputs.github_token }}
-    - ${{ inputs.level }}
-    - ${{ inputs.reporter }}
-    - ${{ inputs.fail_on_error }}
-    - ${{ inputs.filter_mode }}
   steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash

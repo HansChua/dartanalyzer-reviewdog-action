@@ -28,9 +28,9 @@ echo "Install dartcop (dartanalyzer wrapper)"
 curl -fSL https://github.com/HansChua/dartcop/raw/master/src/dartcop/dartcop.py -o "${TEMP_PATH}/dartcop" \
     && chmod +x "${TEMP_PATH}/dartcop"
 
-dartcop --options analysis_options.yaml .
+dartcop --options analysis_options.yaml ${INPUT_WORKDIR}
 
-cat output_checkstyle.xml | reviewdog -f=checkstyle -name="dartanalyzer" -reporter="${INPUT_REPORTER}" -filter-mode="${INPUT_FILTER_MODE}" -level="${INPUT_LEVEL}"
+cat output_checkstyle.xml | reviewdog -f=checkstyle -name="dartanalyzer" -reporter="${INPUT_REPORTER}" -filter-mode="${INPUT_FILTER_MODE}" -level="${INPUT_LEVEL}" ${INPUT_REVIEWDOG_FLAGS}
 
 reviewdog_rc=$?
 exit $reviewdog_rc
